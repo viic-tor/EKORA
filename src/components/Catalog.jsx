@@ -50,7 +50,7 @@ export default function Catalog() {
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                {product.price > 40000 && (
+                {product.name.includes('Glow') && (
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wider text-charcoal shadow-sm">
                     CON BRILLOS
                   </div>

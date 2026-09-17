@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   EKORA - Cosmética Natural
+   Font Configuration & Base Styles
+   ============================================ */
+
+/* Font families loaded via Google Fonts in index.html:
+   - Playfair Display (serif/editorial headings)
+   - Great Vibes (script/decorative accents)
+   - Inter (body/UI text)
+*/
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-charcoal bg-white;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-blush-300 text-beetroot-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-beetroot text-white font-sans font-semibold px-8 py-3.5 rounded-full
+           hover:bg-beetroot-800 active:bg-beetroot-900
+           transition-all duration-300 ease-out
+           shadow-warm-md hover:shadow-warm-lg
+           transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-forest border-2 border-forest font-sans font-semibold px-8 py-3
+           rounded-full hover:bg-forest hover:text-white
+           transition-all duration-300 ease-out;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-main {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf6f6;
+}
+::-webkit-scrollbar-thumb {
+  background: #EBBDBD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d07a7a;
+}

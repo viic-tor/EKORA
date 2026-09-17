@@ -1,203 +1,154 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Minus, Plus, Sparkles, Droplets, ShieldCheck, MessageCircle } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import { products, formatCOP, WHATSAPP_BASE_URL, generateWhatsAppMessage } from '../data/products';
+import { Check, Info, Droplets, Sparkles, ShieldCheck } from 'lucide-react';
+import { products } from '../data/products';
 
-const tabs = [
-  {
-    id: 'uso',
-    label: 'Modo de Uso',
-    icon: Sparkles,
-    content: products[0].usage,
-  },
-  {
-    id: 'acabado',
-    label: 'Acabado',
-    icon: Droplets,
-    content: products[0].finish,
-  },
-  {
-    id: 'beneficios',
-    label: 'Beneficios',
-    icon: ShieldCheck,
-    content: null,
-    list: products[0].benefits,
-  },
-];
+// We use the first product's base data for the general formula benefits
+const formulaDetails = {
+  usage: products[0].usage,
+  finish: products[0].finish,
+  benefits: products[0].benefits,
+  features: products[0].features,
+};
 
 export default function ProductShowcase() {
-  const [activeTab, setActiveTab] = useState('uso');
-  const [quantity, setQuantity] = useState(1);
-  const { addItem } = useCart();
-  const product = products[0];
+  const [activeTab, setActiveTab] = useState('benefits');
 
-  const handleAddToCart = () => {
-    for (let i = 0; i < quantity; i++) {
-      addItem(product);
-    }
-    setQuantity(1);
-  };
-
-  const handleBuyWhatsApp = () => {
-    const items = [{ ...product, quantity }];
-    const message = generateWhatsAppMessage(items);
-    window.open(`${WHATSAPP_BASE_URL}?text=${message}`, '_blank');
-  };
+  const tabs = [
+    { id: 'benefits', label: 'Beneficios', icon: Sparkles },
+    { id: 'usage', label: 'Modo de Uso', icon: Info },
+    { id: 'finish', label: 'Acabado', icon: Droplets },
+  ];
 
   return (
-    <section id="producto" className="section-padding bg-white">
-      <div className="container-main">
+    <section className="py-24 bg-blush-50/30 relative" id="formula">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <span className="font-script text-2xl text-forest">Nuestro producto estrella</span>
+          <span className="font-script text-3xl text-forest">Nuestra fórmula estrella</span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal mt-2">
-            El Rubor de <span className="text-beetroot">Remolacha</span>
+            El secreto de <span className="text-beetroot">EKORA</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Product Visual */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="relative"
           >
             <div className="aspect-square bg-gradient-to-br from-blush-50 to-blush-200 rounded-3xl flex items-center justify-center relative overflow-hidden">
               <img
-                src="/images/rubor-rosado.jpg"
-                alt="Rubor Natural EKORA - Vista de producto con brochas"
+                src="/images/natural-blush-2.jpg"
+                alt="Natural Blush EKORA con brochas"
                 className="w-full h-full object-cover rounded-3xl"
               />
             </div>
-
-            {/* Feature badges */}
-            <div className="flex flex-wrap gap-2 mt-4 justify-center">
-              {product.features.slice(0, 4).map((feature) => (
-                <span
-                  key={feature}
-                  className="text-xs font-medium bg-sage-50 text-forest-700 px-3 py-1.5 rounded-full border border-sage-200"
-                >
-                  {feature}
-                </span>
-              ))}
+            {/* Trust badge */}
+            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-warm-lg flex items-center gap-3">
+              <div className="w-12 h-12 bg-sage-50 rounded-full flex items-center justify-center">
+                <ShieldCheck className="w-6 h-6 text-forest" />
+              </div>
+              <div>
+                <p className="text-xs text-charcoal/50 uppercase tracking-widest font-semibold">Garantía</p>
+                <p className="font-serif font-bold text-charcoal">100% Natural</p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Product Details */}
+          {/* Details */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
           >
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal mb-2">
-              {product.name}
-            </h3>
-            <p className="text-forest font-medium mb-4">{product.tagline}</p>
-            <p className="text-charcoal/60 leading-relaxed mb-6">{product.description}</p>
-
-            {/* Price */}
-            <div className="flex items-baseline gap-3 mb-8">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-beetroot">
-                {formatCOP(product.price)}
-              </span>
-              <span className="text-sm text-charcoal/40">· Envío a toda Colombia</span>
+            <div className="mb-8">
+              <p className="text-lg text-charcoal/70 leading-relaxed">
+                Nuestros rubores están creados con una base botánica que respeta y nutre tu piel. 
+                Cada ingrediente ha sido seleccionado cuidadosamente para ofrecer pigmentación, 
+                textura y beneficios excepcionales.
+              </p>
             </div>
 
-            {/* Quantity Selector */}
-            <div className="flex items-center gap-6 mb-6">
-              <span className="text-sm font-medium text-charcoal/70">Cantidad:</span>
-              <div className="flex items-center gap-3 bg-blush-50 rounded-full px-2 py-1">
-                <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-8 h-8 rounded-full bg-white shadow-warm-sm flex items-center justify-center hover:bg-blush-100 transition-colors"
-                  aria-label="Reducir cantidad"
-                >
-                  <Minus className="w-4 h-4 text-charcoal" />
-                </button>
-                <span className="w-8 text-center font-semibold text-charcoal">{quantity}</span>
-                <button
-                  onClick={() => setQuantity(quantity + 1)}
-                  className="w-8 h-8 rounded-full bg-white shadow-warm-sm flex items-center justify-center hover:bg-blush-100 transition-colors"
-                  aria-label="Aumentar cantidad"
-                >
-                  <Plus className="w-4 h-4 text-charcoal" />
-                </button>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={handleAddToCart}
-                className="btn-primary flex items-center justify-center gap-2 flex-1"
-              >
-                <ShoppingCart className="w-5 h-5" />
-                Añadir al Carrito
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={handleBuyWhatsApp}
-                className="btn-secondary flex items-center justify-center gap-2 flex-1 !border-forest !text-forest"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Comprar por WhatsApp
-              </motion.button>
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {formulaDetails.features.map((feature, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-sage-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-forest" />
+                  </div>
+                  <span className="text-sm text-charcoal/80">{feature}</span>
+                </div>
+              ))}
             </div>
 
             {/* Tabs */}
-            <div className="border-t border-blush-200 pt-6">
-              <div className="flex gap-1 mb-6 bg-blush-50 rounded-2xl p-1">
-                {tabs.map(tab => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                      activeTab === tab.id
-                        ? 'bg-white text-beetroot shadow-warm-sm'
-                        : 'text-charcoal/50 hover:text-charcoal/80'
-                    }`}
-                  >
-                    <tab.icon className="w-4 h-4" />
-                    <span className="hidden sm:inline">{tab.label}</span>
-                  </button>
-                ))}
+            <div className="border-b border-charcoal/10 mb-6">
+              <div className="flex gap-6">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`pb-4 text-sm font-medium transition-colors relative flex items-center gap-2 ${
+                        activeTab === tab.id
+                          ? 'text-beetroot'
+                          : 'text-charcoal/50 hover:text-charcoal'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {tab.label}
+                      {activeTab === tab.id && (
+                        <motion.div
+                          layoutId="activeTab"
+                          className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-beetroot"
+                        />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
+            </div>
 
-              {tabs.map(tab => (
-                activeTab === tab.id && (
-                  <motion.div
-                    key={tab.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-charcoal/70 leading-relaxed"
-                  >
-                    {tab.content && <p>{tab.content}</p>}
-                    {tab.list && (
-                      <ul className="space-y-2">
-                        {tab.list.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-sage mt-2 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </motion.div>
-                )
-              ))}
+            {/* Tab Content */}
+            <div className="min-h-[120px] bg-white p-6 rounded-2xl shadow-warm-sm border border-charcoal/5">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {activeTab === 'benefits' && (
+                  <ul className="space-y-3">
+                    {formulaDetails.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-charcoal/70">
+                        <div className="w-1.5 h-1.5 rounded-full bg-beetroot/40" />
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {activeTab === 'usage' && (
+                  <p className="text-charcoal/70 leading-relaxed">
+                    {formulaDetails.usage}
+                  </p>
+                )}
+                {activeTab === 'finish' && (
+                  <p className="text-charcoal/70 leading-relaxed">
+                    {formulaDetails.finish}
+                  </p>
+                )}
+              </motion.div>
             </div>
           </motion.div>
         </div>

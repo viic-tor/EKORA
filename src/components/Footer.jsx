@@ -40,7 +40,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-4">
-              Cosméticos naturales a base de remolacha y cúrcuma que resaltan tu belleza mientras cuidan tu piel. Desde Ibagué para toda Colombia.
+              Cosméticos naturales a base de remolacha que resaltan tu belleza mientras cuidan tu piel. Desde Ibagué para toda Colombia.
             </p>
             <div className="flex gap-3">
               <a href="https://www.instagram.com/ekora_cosmetic" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-beetroot transition-colors" aria-label="Instagram">

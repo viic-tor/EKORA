@@ -45,7 +45,7 @@ export default function Hero() {
             </p>
 
             <p className="text-base sm:text-lg text-charcoal/60 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Descubre el rubor que combina maquillaje con skincare: pigmentos botánicos de remolacha y cúrcuma que colorean, nutren y protegen tu piel. Para mujeres de 15 a 60 años que eligen belleza consciente.
+              Descubre Natural Blush, un rubor que combina maquillaje con skincare: pigmentación natural de remolacha que colorea y cuida tu piel. Para mujeres que eligen belleza consciente.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -81,8 +81,8 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blush-200 via-blush-300 to-beetroot-200 shadow-warm-lg" />
               <div className="absolute inset-3 rounded-full overflow-hidden shadow-warm-lg">
                 <img
-                  src="/images/rubor-remolacha.jpg"
-                  alt="Rubor Natural de Remolacha EKORA sobre remolacha rallada"
+                  src="/images/natural-blush-1.jpg"
+                  alt="Natural Blush EKORA - Rubor en polvo"
                   className="w-full h-full object-cover"
                 />
               </div>

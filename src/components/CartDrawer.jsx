@@ -83,10 +83,12 @@ export default function CartDrawer() {
                         className="bg-blush-50/50 rounded-2xl p-4 border border-blush-100"
                       >
                         <div className="flex gap-4">
-                          {/* Product mini visual */}
-                          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blush-200 to-beetroot/10 flex items-center justify-center flex-shrink-0">
-                            <ShoppingBag className="w-6 h-6 text-beetroot/50" />
-                          </div>
+                          {/* Product image */}
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
+                          />
 
                           <div className="flex-1 min-w-0">
                             <h4 className="font-semibold text-charcoal text-sm truncate">{item.name}</h4>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Droplets, Sun, Flower2 } from 'lucide-react';
+import { Droplets, Flower2 } from 'lucide-react';
 
 const ingredients = [
   {
@@ -14,26 +14,26 @@ const ingredients = [
     iconColor: 'text-beetroot',
   },
   {
-    icon: Sun,
-    name: 'Cúrcuma',
-    color: 'amber',
-    subtitle: 'Luminosidad Natural',
-    description: 'Reconocida por sus propiedades antiinflamatorias, la cúrcuma aporta luminosidad natural a la piel. Su poder antioxidante ayuda a combatir los signos del envejecimiento prematuro.',
-    benefits: ['Efecto antiinflamatorio', 'Luminosidad natural', 'Anti-envejecimiento'],
-    gradient: 'from-amber-50 to-amber-100',
-    iconBg: 'bg-amber-100',
-    iconColor: 'text-amber-600',
-  },
-  {
-    icon: Flower2,
-    name: 'Aceites Botánicos',
+    icon: Droplets,
+    name: 'Aceite de Coco & Vitamina E',
     color: 'forest',
-    subtitle: 'Hidratación Profunda',
-    description: 'Una mezcla exclusiva de aceites y ceras de origen vegetal que brindan hidratación profunda, fijación duradera y una sensación aterciopelada sobre la piel sin obstruir los poros.',
-    benefits: ['Hidratación profunda', 'Fijación duradera', 'No comedogénico'],
+    subtitle: 'Hidratación y Textura',
+    description: 'El aceite de coco y la vitamina E se unen para brindar una hidratación profunda y una textura agradable. Estos ingredientes seleccionados aseguran que el rubor se funda suavemente en la piel.',
+    benefits: ['Textura agradable', 'Aplicación uniforme', 'Hidratación suave'],
     gradient: 'from-sage-50 to-sage-200',
     iconBg: 'bg-sage-100',
     iconColor: 'text-forest',
+  },
+  {
+    icon: Flower2,
+    name: 'Almidón de Maíz',
+    color: 'amber',
+    subtitle: 'Acabado Perfecto',
+    description: 'El almidón de maíz es el secreto para lograr una aplicación uniforme y un acabado delicado. Ayuda a controlar los brillos naturales mientras mantiene la piel con un aspecto saludable y fresco.',
+    benefits: ['Aplicación uniforme', 'Control de brillos', 'Acabado delicado'],
+    gradient: 'from-amber-50 to-amber-100',
+    iconBg: 'bg-amber-100',
+    iconColor: 'text-amber-600',
   },
 ];
 

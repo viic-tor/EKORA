@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'El Rubor', href: '#producto' },
+  { label: 'Catálogo', href: '#catalogo' },
   { label: 'Ingredientes', href: '#ingredientes' },
   { label: 'Nuestra Historia', href: '#historia' },
   { label: 'Beneficios', href: '#beneficios' },

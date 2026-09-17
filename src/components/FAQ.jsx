@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: '¿Es seguro para pieles sensibles?',
-    answer: 'Absolutamente. Al estar libre de parabenos, fragancia sintética y químicos agresivos, nuestro rubor es apto para pieles sensibles. Los ingredientes botánicos como la cúrcuma incluso tienen propiedades antiinflamatorias.',
+    answer: 'Absolutamente. Al estar libre de parabenos, fragancia sintética y químicos agresivos, nuestro rubor es apto para pieles sensibles. Los ingredientes botánicos naturales tienen propiedades calmantes y protectoras.',
   },
   {
     question: '¿Hacen envíos a toda Colombia?',

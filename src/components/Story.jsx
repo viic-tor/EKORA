@@ -33,7 +33,7 @@ export default function Story() {
               {/* Mission Quote */}
               <blockquote className="border-l-4 border-beetroot/30 pl-6 py-3 bg-blush-50/50 rounded-r-2xl">
                 <p className="font-serif text-lg text-charcoal italic">
-                  "Crear cosméticos naturales a base de remolacha y cúrcuma que resalten la belleza mientras cuidan la piel, promoviendo una cosmética consciente, natural y accesible."
+                  "Crear cosméticos naturales a base de remolacha y activos botánicos que resalten la belleza mientras cuidan la piel, promoviendo una cosmética consciente, natural y accesible."
                 </p>
                 <footer className="mt-2 text-sm font-medium text-beetroot">— Nuestra Misión</footer>
               </blockquote>
